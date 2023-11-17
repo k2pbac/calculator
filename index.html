@@ -8,20 +8,27 @@
   </head>
   <body>
     <div class="calculator-form">
-      <input type="text" name="total" value="0" class="total" />
+      <input
+        type="text"
+        name="total"
+        value=""
+        placeholder="0"
+        class="total"
+        readonly
+      />
       <form action="/" method="POST">
         <input readonly type="text" name="num0" placeholder="7" value="7" />
         <input readonly type="text" name="num1" placeholder="8" value="8" />
         <input readonly type="text" name="num2" placeholder="9" value="9" />
-        <button type="submit" name="action" value="add" class="add">+</button>
+        <button type="button" name="action" value="+" class="add">+</button>
         <input readonly type="text" name="num3" placeholder="4" value="4" />
         <input readonly type="text" name="num4" placeholder="5" value="5" />
         <input readonly type="text" name="num5" placeholder="6" value="6" />
-        <button type="submit" name="action" value="subtract">-</button>
+        <button type="button" name="action" value="-">-</button>
         <input readonly type="text" name="num6" placeholder="1" value="1" />
         <input readonly type="text" name="num7" placeholder="2" value="2" />
         <input readonly type="text" name="num8" placeholder="3" value="3" />
-        <button type="submit" name="action" value="multiply">*</button>
+        <button type="button" name="action" value="*">*</button>
         <input
           readonly
           type="text"
@@ -38,7 +45,7 @@
           class="dot"
           value="."
         />
-        <button name="action" type="submit" class="equal">=</button>
+        <button name="action" type="button" class="equal" value="=">=</button>
       </form>
     </div>
     <script
