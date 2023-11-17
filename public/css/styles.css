@@ -1,0 +1,51 @@
+.calculator-form {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.calculator-form form {
+  display: grid;
+  grid-template-rows: 100px 100px 100px 100px;
+  grid-template-columns: 100px 100px 100px 100px;
+}
+button {
+  border: none;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  font-size: 18px;
+}
+.zero {
+  grid-column-start: 0;
+  grid-column-end: span 2;
+  border-bottom-left-radius: 8px;
+}
+.equal {
+  border-bottom-right-radius: 8px;
+  border-bottom: 1px solid black;
+}
+input {
+  border: none;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  cursor: default;
+  font-size: 18px;
+  text-align: center;
+}
+input.total {
+  width: 400px;
+  border: 1px solid black;
+  border-bottom: 0;
+  height: 80px;
+  text-align: end;
+  padding-right: 40px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.zero,
+.dot {
+  border-bottom: 1px solid black;
+}

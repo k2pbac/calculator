@@ -3,13 +3,50 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/styles.css" type="text/css" rel="stylesheet" />
     <title>Document</title>
   </head>
   <body>
-    <form action="/" method="POST">
-      <input type="text" name="num1" placeholder="First Number" />
-      <input type="text" name="num2" placeholder="Second Number" />
-      <button type="submit">Calculate</button>
-    </form>
+    <div class="calculator-form">
+      <input type="text" name="total" value="0" class="total" />
+      <form action="/" method="POST">
+        <input readonly type="text" name="num0" placeholder="7" value="7" />
+        <input readonly type="text" name="num1" placeholder="8" value="8" />
+        <input readonly type="text" name="num2" placeholder="9" value="9" />
+        <button type="submit" name="action" value="add" class="add">+</button>
+        <input readonly type="text" name="num3" placeholder="4" value="4" />
+        <input readonly type="text" name="num4" placeholder="5" value="5" />
+        <input readonly type="text" name="num5" placeholder="6" value="6" />
+        <button type="submit" name="action" value="subtract">-</button>
+        <input readonly type="text" name="num6" placeholder="1" value="1" />
+        <input readonly type="text" name="num7" placeholder="2" value="2" />
+        <input readonly type="text" name="num8" placeholder="3" value="3" />
+        <button type="submit" name="action" value="multiply">*</button>
+        <input
+          readonly
+          type="text"
+          name="num9"
+          placeholder="0"
+          class="zero"
+          value="0"
+        />
+        <input
+          readonly
+          type="text"
+          name="num9"
+          placeholder="."
+          class="dot"
+          value="."
+        />
+        <button name="action" type="submit" class="equal">=</button>
+      </form>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="scripts.js"></script>
   </body>
 </html>
