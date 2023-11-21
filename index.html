@@ -7,46 +7,53 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="calculator-form">
-      <input
-        type="text"
-        name="total"
-        value=""
-        placeholder="0"
-        class="total"
-        readonly
-      />
-      <form action="/" method="POST">
-        <input readonly type="text" name="num0" placeholder="7" value="7" />
-        <input readonly type="text" name="num1" placeholder="8" value="8" />
-        <input readonly type="text" name="num2" placeholder="9" value="9" />
-        <button type="button" name="action" value="+" class="add">+</button>
-        <input readonly type="text" name="num3" placeholder="4" value="4" />
-        <input readonly type="text" name="num4" placeholder="5" value="5" />
-        <input readonly type="text" name="num5" placeholder="6" value="6" />
-        <button type="button" name="action" value="-">-</button>
-        <input readonly type="text" name="num6" placeholder="1" value="1" />
-        <input readonly type="text" name="num7" placeholder="2" value="2" />
-        <input readonly type="text" name="num8" placeholder="3" value="3" />
-        <button type="button" name="action" value="*">*</button>
+    <div class="shape">
+      <div id="draggable" class="calculator-form">
+        <div class="s2"></div>
+        <div class="s3"></div>
+        <div class="s4"></div>
+        <div class="s5"></div>
+        <div class="s6"></div>
         <input
-          readonly
           type="text"
-          name="num9"
+          name="total"
+          value=""
           placeholder="0"
-          class="zero"
-          value="0"
-        />
-        <input
+          class="total"
           readonly
-          type="text"
-          name="num9"
-          placeholder="."
-          class="dot"
-          value="."
         />
-        <button name="action" type="button" class="equal" value="=">=</button>
-      </form>
+        <form action="/" method="POST">
+          <input readonly type="text" name="num0" placeholder="7" value="7" />
+          <input readonly type="text" name="num1" placeholder="8" value="8" />
+          <input readonly type="text" name="num2" placeholder="9" value="9" />
+          <button type="button" name="action" value="+" class="add">+</button>
+          <input readonly type="text" name="num3" placeholder="4" value="4" />
+          <input readonly type="text" name="num4" placeholder="5" value="5" />
+          <input readonly type="text" name="num5" placeholder="6" value="6" />
+          <button type="button" name="action" value="-">-</button>
+          <input readonly type="text" name="num6" placeholder="1" value="1" />
+          <input readonly type="text" name="num7" placeholder="2" value="2" />
+          <input readonly type="text" name="num8" placeholder="3" value="3" />
+          <button type="button" name="action" value="*">*</button>
+          <input
+            readonly
+            type="text"
+            name="num9"
+            placeholder="0"
+            class="zero"
+            value="0"
+          />
+          <input
+            readonly
+            type="text"
+            name="num9"
+            placeholder="."
+            class="dot"
+            value="."
+          />
+          <button name="action" type="button" class="equal" value="=">=</button>
+        </form>
+      </div>
     </div>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
@@ -55,5 +62,11 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="scripts.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"
+      integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
   </body>
 </html>

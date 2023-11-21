@@ -1,9 +1,30 @@
-.calculator-form {
+body {
+  background: #342f30;
+}
+
+.shape {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
+}
+.calculator-form {
+  height: 480px;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotate 6s linear infinite;
+  transform: rotateX(16deg) rotateY(304deg) rotateZ(360deg);
+  /* transform: rotateX(-28deg) rotateY(235deg) rotateZ(360deg); */
+}
+
+.calculator-form > div {
+  border-radius: 8px;
+  position: absolute;
+  opacity: 0.9;
+  background: linear-gradient(to right, #09adc8, #001f4e);
 }
 .calculator-form form {
   display: grid;
@@ -16,6 +37,7 @@ button {
   border-top: 1px solid black;
   border-left: 1px solid black;
   font-size: 18px;
+  background: #ff9130;
 }
 .zero {
   grid-column-start: 0;
@@ -33,6 +55,7 @@ input {
   cursor: default;
   font-size: 18px;
   text-align: center;
+  background: #a9a9a9;
 }
 input.total {
   width: 400px;
@@ -43,9 +66,50 @@ input.total {
   padding-right: 40px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+  background: #1b1b1b;
+  color: white;
 }
-
+input.total::placeholder {
+  color: white;
+}
 .zero,
 .dot {
   border-bottom: 1px solid black;
 }
+
+/* right */
+.s2 {
+  width: 100px;
+  height: 465px;
+  transform: rotateY(90deg) translateZ(200px) translateX(49px);
+}
+/* back */
+.s3 {
+  height: 467px;
+  width: 400px;
+  transform: rotateY(180deg) translateZ(98px) translateY(-2px);
+}
+/* top */
+.s4 {
+  width: 400px;
+  height: 100px;
+  transform: rotateX(90deg) translateZ(50px) rotate(180deg) translateY(48px);
+}
+/* left */
+.s5 {
+  width: 100px;
+  height: 465px;
+  transform: rotateY(-90deg) translateZ(200px) translateX(-49px);
+}
+/* bottom */
+.s6 {
+  width: 400px;
+  height: 100px;
+  transform: rotateX(-90deg) translateZ(415px) rotate(180deg) translateY(-48px);
+}
+
+/* @keyframes rotate {
+  100% {
+    transform: rotateX(0deg) rotateY(360deg) rotateZ(360deg);
+  }
+} */
