@@ -3,60 +3,34 @@ $(document).ready(function () {
   let runningTotal = 0;
   let runningVal = [];
   let index = 0;
-  let isOnDiv = false;
-  var divPos = {};
-  var offset = $("#draggable").offset();
-
-  $.fn.rotationInfo = function () {
-    var el = $(this),
-      tr =
-        el.css("-webkit-transform") ||
-        el.css("-moz-transform") ||
-        el.css("-ms-transform") ||
-        el.css("-o-transform") ||
-        "",
-      info = { rad: 0, deg: 0 };
-    if ((tr = tr.match("matrix\\((.*)\\)"))) {
-      tr = tr[1].split(",");
-      if (typeof tr[0] != "undefined" && typeof tr[1] != "undefined") {
-        info.rad = Math.atan2(tr[1], tr[0]);
-        info.deg = parseFloat(((info.rad * 180) / Math.PI).toFixed(1));
-      }
-    }
-    return info;
-  };
-
-  $("#draggable").mouseenter(function () {
-    isOnDiv = true;
-  });
-  $("#draggable").mouseleave(function () {
-    isOnDiv = false;
-  });
+  let divPos = {};
+  let offset = $("#draggable").offset();
+  let startY = 0;
+  let startX = 0;
   $("#draggable").draggable(
     { containment: ".calculator-form" },
     {
-      start: function () {
-        console.log("start");
-        const obj = $(this);
+      start: function (event, ui) {
+        startY = event.pageY;
+        startX = event.pageX;
       },
       drag: function (event, ui) {
         const obj = $(this);
-        console.log(obj.rotationInfo());
 
         divPos = {
           left: event.pageX - offset.left,
           top: event.pageY - offset.top,
         };
-        let x = Math.abs(16 - divPos["left"]);
-        let y = 304 - divPos["top"];
-        console.log({ x, y });
-        const mod = (n, m) => (m + (n % m)) % m;
-        const capX = (value, low, high) =>
-          low + mod(value - low, high - low + 1);
-        const capY = (value, low, high) =>
-          low + mod(value - low, high - low + 1);
+        let realY = startY - event.pageY;
+        let realX = startX - event.pageX;
 
-        obj.css("transform", `rotateX(${capX(x, 0, 360) + "deg"})`);
+        obj.css(
+          "transform",
+          `rotateY(${realX + "deg"}) rotateX(${realY + "deg"}) rotateZ(360deg)`
+        );
+
+        ui.position.top = 0;
+        ui.position.left = 0;
       },
     }
   );
