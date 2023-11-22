@@ -55,7 +55,7 @@ $(document).ready(function () {
   });
 
   $(".calculator-form form > button").on("click", (element) => {
-    if (runningVal[0]) {
+    if (runningVal[0] && !["+", "-", "*", "/"].includes(runningVal[index])) {
       sign = element.target.value;
       const currentVal = $(".total").val();
       if (sign !== "=") {
@@ -113,3 +113,7 @@ const divide = (a, b) => {
 const multiply = (a, b) => {
   return parseFloat(a) * parseFloat(b);
 };
+
+function bringToFront() {
+  $("#draggable").css("transform", "");
+}

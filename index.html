@@ -3,14 +3,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="css/styles.css" type="text/css" rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico" />
+    <link href="css/shape.css" type="text/css" rel="stylesheet" />
+    <link href="css/index.css" type="text/css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="/logo_1/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Martel+Sans&display=swap"
+      rel="stylesheet"
+    />
     <title>MyCalc</title>
   </head>
   <body>
-    <div class="header">
-      <h1>MyCalc</h1>
-    </div>
     <div class="shape">
       <div id="draggable" class="calculator-form">
         <div class="s2"></div>
@@ -38,7 +42,7 @@
           <input readonly type="text" name="num6" placeholder="1" value="1" />
           <input readonly type="text" name="num7" placeholder="2" value="2" />
           <input readonly type="text" name="num8" placeholder="3" value="3" />
-          <button type="button" name="action" value="*">*</button>
+          <button type="button" name="action" value="*">x</button>
           <input
             readonly
             type="text"
@@ -58,6 +62,20 @@
           <button name="action" type="button" class="equal" value="=">=</button>
         </form>
       </div>
+      <a
+        href="https://www.flaticon.com/free-icons/return"
+        title="return icons"
+        target="_blank"
+        >Return icons created by Smartline - Flaticon</a
+      >
+    </div>
+    <div class="return-image">
+      <p>Return to front</p>
+      <img
+        onclick="bringToFront()"
+        src="/logo_1/return.png"
+        alt="return to front"
+      />
     </div>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
