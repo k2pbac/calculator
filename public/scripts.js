@@ -7,6 +7,11 @@ $(document).ready(function () {
   let offset = $("#draggable").offset();
   let startY = 0;
   let startX = 0;
+
+  particlesJS.load("particles-js", "particles.json", function () {
+    console.log("callback - particles.js config loaded");
+  });
+
   $("#draggable").draggable(
     { containment: ".calculator-form" },
     {
