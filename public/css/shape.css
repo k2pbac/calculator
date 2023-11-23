@@ -1,7 +1,5 @@
 input {
-  border: none;
-  border-top: 1px solid black;
-  border-left: 1px solid black;
+  border: 1px solid black;
   cursor: default;
   font-size: 18px;
   text-align: center;
@@ -38,12 +36,10 @@ input.total {
   width: 348px;
   height: 100px;
   border: 1px solid black;
-  border-bottom: 0;
   height: 60px;
   text-align: end;
   padding-right: 40px;
-  border-top-left-radius: 18px;
-  border-top-right-radius: 18px;
+  border-radius: 18px;
   background: #ffffff9c;
   color: black;
   margin: 18px;
@@ -60,6 +56,7 @@ input.total::placeholder {
   flex-direction: column;
   gap: 40px;
   height: 100%;
+  flex-wrap: wrap;
 }
 .calculator-form {
   height: 465px;
@@ -68,21 +65,27 @@ input.total::placeholder {
   flex-direction: column;
   position: relative;
   transform-style: preserve-3d;
-  animation: rotate 6s linear infinite;
+  /* animation: rotate 6s linear infinite; */
+  transform: rotateY(15deg) rotateX(2deg) rotateZ(360deg);
 }
 
 .calculator-form > div {
   border-radius: 8px;
   position: absolute;
   opacity: 0.9;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     179deg,
     rgba(0, 0, 0, 1) 9.2%,
     rgba(127, 16, 16, 1) 103.9%
-  );
+  ); */
   /* background-color: #0093e9; */
   /* background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%); */
   border: 0.1px solid #ffffff42;
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(176, 229, 208, 1) 42%,
+    rgba(92, 202, 238, 0.41) 93.6%
+  );
 }
 .calculator-form form {
   display: grid;
@@ -91,10 +94,7 @@ input.total::placeholder {
   grid-template-columns: 80px 80px 80px 80px;
 }
 button {
-  border: none;
-  border-right: 1px solid black;
-  border-top: 1px solid black;
-  border-left: 1px solid black;
+  border: 1px solid black;
   font-size: 18px;
   background: #e696509c;
   border-radius: 1em;
@@ -143,13 +143,6 @@ button {
   transform: rotateX(-90deg) translateZ(415px) rotate(180deg) translateY(-48px);
 }
 
-a {
-  color: white;
-  text-decoration: none;
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-}
 #gx {
   background-size: contain;
   padding: 10% 0;
@@ -158,7 +151,7 @@ a {
 }
 
 .calculator-form > div {
-  animation: tronFilter 12s infinite;
+  /* animation: tronFilter 12s infinite; */
   fill: #000000;
   stroke: #666;
   stroke-width: 5;

@@ -1,0 +1,173 @@
+.level-selector {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px;
+  background: #ffffff4a;
+  gap: 30px;
+  position: absolute;
+  right: 0;
+  /* bottom: 0;
+  transform: translate(0, -50%); */
+  height: 100%;
+  width: 200px;
+}
+.level-selector p {
+  font-size: 2rem;
+  color: white;
+  font-family: fantasy;
+}
+
+.button-3d {
+  display: inline-block;
+  position: relative;
+  border: 0;
+  background: white;
+  padding: 1.25em 1.5em;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  transform-style: preserve-3d;
+  transition: transform 0.3s cubic-bezier(0, 0, 0.58, 1),
+    background 0.3s cubic-bezier(0, 0, 0.58, 1);
+  cursor: pointer;
+}
+.button-3d:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  transform: translate3d(0, 0.5em, -1em);
+  transition: transform 0.3s cubic-bezier(0, 0, 0.58, 1);
+}
+.button-3d:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  filter: blur(4px);
+  border-radius: inherit;
+  top: 0;
+  left: 0;
+  transform: translate3d(0, 0.7em, -1em);
+  transition: transform 0.3s cubic-bezier(0, 0, 0.58, 1);
+}
+.button-3d:hover {
+  transform: translateY(-0.25em);
+}
+.button-3d:hover:before {
+  transform: translate3d(0, 0.75em, -1em);
+}
+.button-3d:hover:after {
+  transform: translate3d(0, 1.05em, -1em);
+}
+.button-3d:active {
+  transform: translate(0, 0.5em);
+}
+.button-3d:active:before,
+.button-3d:active:after {
+  transform: translate3d(0, 0, -1em);
+}
+
+.easy {
+  color: #56ac4a;
+  border-left: 3px solid #56ac4a;
+  border-right: 3px solid #56ac4a;
+  border-top: 3px solid #56ac4a;
+}
+
+button.easy:before {
+  background: #56ac4a;
+}
+
+.medium {
+  color: #fb9317;
+  border-left: 3px solid #fb9317;
+  border-right: 3px solid #fb9317;
+  border-top: 3px solid #fb9317;
+}
+
+button.medium:before {
+  background: #fb9317;
+}
+
+.hard {
+  color: #e65053;
+  border-left: 3px solid #e65053;
+  border-right: 3px solid #e65053;
+  border-top: 3px solid #e65053;
+}
+
+button.hard:before {
+  background: #e65053;
+}
+
+.rating {
+  width: 72px;
+  height: 24px;
+  position: relative;
+  background-color: gray;
+  margin-bottom: 6px;
+}
+
+.rating progress.rating-bg {
+  -webkit-appearance: none;
+  -moz-appearence: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  height: 24px;
+  width: 100%;
+  color: orange;
+}
+.rating progress.rating-bg::-webkit-progress-value {
+  background-color: orange;
+}
+.rating progress.rating-bg::-moz-progress-bar {
+  background-color: orange;
+}
+
+.hard .rating progress.rating-bg {
+  color: #e65053;
+}
+.medium .rating progress.rating-bg {
+  color: #fb9317;
+}
+.easy .rating progress.rating-bg {
+  color: #56ac4a;
+}
+
+.hard .rating progress.rating-bg::-webkit-progress-value {
+  background-color: #e65053;
+}
+.medium .rating progress.rating-bg::-webkit-progress-value {
+  background-color: #fb9317;
+}
+.easy .rating progress.rating-bg::-webkit-progress-value {
+  background-color: #56ac4a;
+}
+
+.hard .rating progress.rating-bg::-moz-progress-bar {
+  background-color: #e65053;
+}
+.medium .rating progress.rating-bg::-moz-progress-bar {
+  background-color: #fb9317;
+}
+.easy .rating progress.rating-bg::-moz-progress-bar {
+  background-color: #56ac4a;
+}
+
+.rating svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="css/shape.css" type="text/css" rel="stylesheet" />
     <link href="css/index.css" type="text/css" rel="stylesheet" />
+    <link href="css/levels.css" type="text/css" rel="stylesheet" />
+
     <link rel="icon" type="image/x-icon" href="/logo_1/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,68 +29,123 @@
     <title>MyCalc</title>
   </head>
   <body>
-    <div id="particles-js"></div>
-    <div class="shape" id="gx">
-      <div id="draggable" class="calculator-form gx-logo">
-        <div class="s2"></div>
-        <div class="s3"></div>
-        <div class="s4"></div>
-        <div class="s5"></div>
-        <div class="s6"></div>
-        <input
-          type="text"
-          name="total"
-          value=""
-          placeholder="0"
-          class="total"
-          readonly
-        />
-        <form action="/" method="POST">
-          <input readonly type="text" name="num0" placeholder="7" value="7" />
-          <input readonly type="text" name="num1" placeholder="8" value="8" />
-          <input readonly type="text" name="num2" placeholder="9" value="9" />
-          <button type="button" name="action" value="+" class="add">+</button>
-          <input readonly type="text" name="num3" placeholder="4" value="4" />
-          <input readonly type="text" name="num4" placeholder="5" value="5" />
-          <input readonly type="text" name="num5" placeholder="6" value="6" />
-          <button type="button" name="action" value="-">-</button>
-          <input readonly type="text" name="num6" placeholder="1" value="1" />
-          <input readonly type="text" name="num7" placeholder="2" value="2" />
-          <input readonly type="text" name="num8" placeholder="3" value="3" />
-          <button type="button" name="action" value="*">x</button>
+    <div class="content">
+      <div id="particles-js"></div>
+      <div class="shape">
+        <div id="draggable" class="calculator-form">
+          <div class="s2"></div>
+          <div class="s3"></div>
+          <div class="s4"></div>
+          <div class="s5"></div>
+          <div class="s6"></div>
           <input
-            readonly
             type="text"
-            name="num9"
+            name="total"
+            value=""
             placeholder="0"
-            class="zero"
-            value="0"
-          />
-          <input
+            class="total"
             readonly
-            type="text"
-            name="num9"
-            placeholder="."
-            class="dot"
-            value="."
           />
-          <button name="action" type="button" class="equal" value="=">=</button>
-        </form>
+          <form action="/" method="POST">
+            <input readonly type="text" name="num0" placeholder="7" value="7" />
+            <input readonly type="text" name="num1" placeholder="8" value="8" />
+            <input readonly type="text" name="num2" placeholder="9" value="9" />
+            <button type="button" name="action" value="+" class="add">+</button>
+            <input readonly type="text" name="num3" placeholder="4" value="4" />
+            <input readonly type="text" name="num4" placeholder="5" value="5" />
+            <input readonly type="text" name="num5" placeholder="6" value="6" />
+            <button type="button" name="action" value="-">-</button>
+            <input readonly type="text" name="num6" placeholder="1" value="1" />
+            <input readonly type="text" name="num7" placeholder="2" value="2" />
+            <input readonly type="text" name="num8" placeholder="3" value="3" />
+            <button type="button" name="action" value="*">x</button>
+            <input
+              readonly
+              type="text"
+              name="num9"
+              placeholder="0"
+              class="zero"
+              value="0"
+            />
+            <input
+              readonly
+              type="text"
+              name="num9"
+              placeholder="."
+              class="dot"
+              value="."
+            />
+            <button name="action" type="button" class="equal" value="=">
+              =
+            </button>
+          </form>
+        </div>
+
+        <div class="return-image">
+          <p>Return to front</p>
+          <img
+            onclick="bringToFront()"
+            src="/logo_1/return-small.png"
+            alt="return to front"
+          />
+        </div>
       </div>
-      <a
-        href="https://www.flaticon.com/free-icons/return"
-        title="return icons"
-        target="_blank"
-        >Return icons created by Smartline - Flaticon</a
-      >
-    </div>
-    <div class="return-image">
-      <p>Return to front</p>
-      <img
-        onclick="bringToFront()"
-        src="/logo_1/return.png"
-        alt="return to front"
-      />
+      <div class="level-selector">
+        <p>Game Levels</p>
+
+        <svg style="display: none">
+          <defs>
+            <symbol id="threestars">
+              <path
+                d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z M0 0 h24 v24 h-24 v-24"
+                fill="white"
+                fill-rule="evenodd"
+              />
+              <path
+                d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z M0 0 h24 v24 h-24 v-24"
+                fill="white"
+                fill-rule="evenodd"
+                transform="translate(24)"
+              />
+              <path
+                d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z M0 0 h24 v24 h-24 v-24"
+                fill="white"
+                fill-rule="evenodd"
+                transform="translate(48)"
+              />
+            </symbol>
+          </defs>
+        </svg>
+        <button class="button-3d easy">
+          <div class="rating">
+            <!--   <div class="rating-bg" style="width: 90%;"></div> -->
+            <progress class="rating-bg" value="1" max="3"></progress>
+            <svg>
+              <use xlink:href="#threestars" />
+            </svg>
+          </div>
+          Easy
+        </button>
+        <button class="button-3d medium">
+          <div class="rating">
+            <!--   <div class="rating-bg" style="width: 90%;"></div> -->
+            <progress class="rating-bg" value="2" max="3"></progress>
+            <svg>
+              <use xlink:href="#threestars" />
+            </svg>
+          </div>
+          Medium
+        </button>
+        <button class="button-3d hard">
+          <div class="rating">
+            <progress class="rating-bg" value="3" max="3"></progress>
+            <svg>
+              <use xlink:href="#threestars" />
+            </svg>
+          </div>
+          Hard
+        </button>
+      </div>
     </div>
     <script src="scripts.js"></script>
     <script src="particles.js-master/particles.js"></script>
