@@ -6,6 +6,7 @@
     <link href="css/shape.css" type="text/css" rel="stylesheet" />
     <link href="css/index.css" type="text/css" rel="stylesheet" />
     <link href="css/levels.css" type="text/css" rel="stylesheet" />
+    <link href="css/questions.css" type="text/css" rel="stylesheet" />
 
     <link rel="icon" type="image/x-icon" href="/logo_1/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -47,18 +48,44 @@
             readonly
           />
           <form action="/" method="POST">
+            <input
+              disabled="disabled"
+              readonly
+              type="text"
+              name="blank"
+              placeholder=""
+              value=""
+            />
+            <input
+              disabled="disabled"
+              readonly
+              type="text"
+              name="blank2"
+              placeholder=""
+              value=""
+            />
+            <input
+              readonly
+              type="text"
+              name="clear"
+              placeholder="clear"
+              value="clr"
+            />
+            <button type="button" name="action" value="+" class="add">+</button>
             <input readonly type="text" name="num0" placeholder="7" value="7" />
             <input readonly type="text" name="num1" placeholder="8" value="8" />
             <input readonly type="text" name="num2" placeholder="9" value="9" />
-            <button type="button" name="action" value="+" class="add">+</button>
+            <button type="button" name="action" value="-">-</button>
             <input readonly type="text" name="num3" placeholder="4" value="4" />
             <input readonly type="text" name="num4" placeholder="5" value="5" />
             <input readonly type="text" name="num5" placeholder="6" value="6" />
-            <button type="button" name="action" value="-">-</button>
+            <button type="button" name="action" value="*">x</button>
             <input readonly type="text" name="num6" placeholder="1" value="1" />
             <input readonly type="text" name="num7" placeholder="2" value="2" />
             <input readonly type="text" name="num8" placeholder="3" value="3" />
-            <button type="button" name="action" value="*">x</button>
+            <button type="button" name="action" value="/" class="divide">
+              /
+            </button>
             <input
               readonly
               type="text"
@@ -81,7 +108,7 @@
           </form>
         </div>
 
-        <div class="return-image">
+        <div class="return-image hidden">
           <p>Return to front</p>
           <img
             onclick="bringToFront()"
@@ -91,11 +118,72 @@
         </div>
       </div>
       <div class="level-selector">
-        <p>Game Levels</p>
-
+        <div class="title-container">
+          <p class="title">Game Levels</p>
+          <p class="hidden current-level">
+            <span>Current level: <span class="level-name"></span></span>
+            <span class="level-questions"
+              ><span class="level-name"></span
+            ></span>
+            <span class="timer"></span>
+          </p>
+          <div class="hidden question-container">
+            <p class="question-container__question">Question 1:</p>
+            <span class="questions">2 x 2 - 3 / 4</span>
+            <p class="question-container__answer">Answer 1:</p>
+            <input
+              type="text"
+              name="answer"
+              placeholder="Enter your answer"
+              value=""
+            />
+            <div class="question-container__buttons">
+              <button class="reset">Start Over</button>
+              <button class="home">Home</button>
+            </div>
+          </div>
+        </div>
         <svg style="display: none">
           <defs>
-            <symbol id="threestars">
+            <symbol id="threestars-easy">
+              <path
+                d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z M0 0 h24 v24 h-24 v-24"
+                fill="white"
+                fill-rule="evenodd"
+              />
+              <path
+                d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z M0 0 h24 v24 h-24 v-24"
+                fill="white"
+                fill-rule="evenodd"
+                transform="translate(24)"
+              />
+              <path
+                d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z M0 0 h24 v24 h-24 v-24"
+                fill="white"
+                fill-rule="evenodd"
+                transform="translate(48)"
+              />
+            </symbol>
+            <symbol id="threestars-medium">
+              <path
+                d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z M0 0 h24 v24 h-24 v-24"
+                fill="white"
+                fill-rule="evenodd"
+              />
+              <path
+                d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z M0 0 h24 v24 h-24 v-24"
+                fill="white"
+                fill-rule="evenodd"
+                transform="translate(24)"
+              />
+              <path
+                d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z M0 0 h24 v24 h-24 v-24"
+                fill="white"
+                fill-rule="evenodd"
+                transform="translate(48)"
+              />
+            </symbol>
+            <symbol id="threestars-hard">
               <path
                 d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z M0 0 h24 v24 h-24 v-24"
                 fill="white"
@@ -121,17 +209,16 @@
             <!--   <div class="rating-bg" style="width: 90%;"></div> -->
             <progress class="rating-bg" value="1" max="3"></progress>
             <svg>
-              <use xlink:href="#threestars" />
+              <use xlink:href="#threestars-easy" />
             </svg>
           </div>
           Easy
         </button>
         <button class="button-3d medium">
           <div class="rating">
-            <!--   <div class="rating-bg" style="width: 90%;"></div> -->
             <progress class="rating-bg" value="2" max="3"></progress>
             <svg>
-              <use xlink:href="#threestars" />
+              <use xlink:href="#threestars-medium" />
             </svg>
           </div>
           Medium
@@ -140,7 +227,7 @@
           <div class="rating">
             <progress class="rating-bg" value="3" max="3"></progress>
             <svg>
-              <use xlink:href="#threestars" />
+              <use xlink:href="#threestars-hard" />
             </svg>
           </div>
           Hard
@@ -148,6 +235,8 @@
       </div>
     </div>
     <script src="scripts.js"></script>
+    <script src="levels.js"></script>
+    <script src="questions.js"></script>
     <script src="particles.js-master/particles.js"></script>
   </body>
 </html>

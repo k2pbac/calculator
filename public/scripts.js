@@ -3,7 +3,6 @@ $(document).ready(function () {
   let runningTotal = 0;
   let runningVal = [];
   let index = 0;
-  let divPos = {};
   let offset = $("#draggable").offset();
   let startY = 0;
   let startX = 0;
@@ -12,12 +11,17 @@ $(document).ready(function () {
     console.log("callback - particles.js config loaded");
   });
 
+  $(".home").on("click", () => {
+    clearAllElements();
+  });
+
   $("#draggable").draggable(
     { containment: ".calculator-form" },
     {
       start: function (event, ui) {
         startY = event.pageY;
         startX = event.pageX;
+        $(".return-image").toggleClass("hidden");
       },
       drag: function (event, ui) {
         const obj = $(this);
@@ -40,22 +44,30 @@ $(document).ready(function () {
     }
   );
   $(".calculator-form form > input").on("click", (element) => {
-    const val = handleInput(element.target.value);
-    if (
-      !!runningVal[index] &&
-      !["+", "-", "*", "/"].includes(runningVal[index])
-    )
-      runningVal[index] += "" + val;
-    else {
-      runningVal.push(val);
-    }
-    const currentVal = parseFloat(runningVal[index]);
-    if (sign == "") $(".total").val(currentVal);
-    else {
-      $(".total").val($(".total").val() + val);
-    }
-    if (["+", "-", "*", "/"].includes(runningVal[index])) {
-      index++;
+    if (element.target.value !== "clr") {
+      const val = handleInput(element.target.value);
+      if (
+        !!runningVal[index] &&
+        !["+", "-", "*", "/"].includes(runningVal[index])
+      )
+        runningVal[index] += "" + val;
+      else {
+        runningVal.push(val);
+      }
+      const currentVal = parseFloat(runningVal[index]);
+      if (sign == "") $(".total").val(currentVal);
+      else {
+        $(".total").val($(".total").val() + val);
+      }
+      if (["+", "-", "*", "/"].includes(runningVal[index])) {
+        index++;
+      }
+    } else {
+      $(".total").val("");
+      runningTotal = 0;
+      runningVal = [];
+      index = 0;
+      sign = "";
     }
   });
 
@@ -106,19 +118,7 @@ const handleCalculate = (array) => {
   return total;
 };
 
-const add = (a, b) => {
-  return parseFloat(a) + parseFloat(b);
-};
-const subtract = (a, b) => {
-  return parseFloat(a) - parseFloat(b);
-};
-const divide = (a, b) => {
-  return parseFloat(a) / parseFloat(b);
-};
-const multiply = (a, b) => {
-  return parseFloat(a) * parseFloat(b);
-};
-
 function bringToFront() {
   $("#draggable").css("transform", "");
+  $(".return-image").toggleClass("hidden");
 }

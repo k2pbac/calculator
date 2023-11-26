@@ -65,7 +65,6 @@ input.total::placeholder {
   flex-direction: column;
   position: relative;
   transform-style: preserve-3d;
-  /* animation: rotate 6s linear infinite; */
   transform: rotateY(15deg) rotateX(2deg) rotateZ(360deg);
 }
 
@@ -73,13 +72,6 @@ input.total::placeholder {
   border-radius: 8px;
   position: absolute;
   opacity: 0.9;
-  /* background-image: linear-gradient(
-    179deg,
-    rgba(0, 0, 0, 1) 9.2%,
-    rgba(127, 16, 16, 1) 103.9%
-  ); */
-  /* background-color: #0093e9; */
-  /* background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%); */
   border: 0.1px solid #ffffff42;
   background-image: radial-gradient(
     circle farthest-corner at 10% 20%,
@@ -90,7 +82,7 @@ input.total::placeholder {
 .calculator-form form {
   display: grid;
   gap: 9px;
-  grid-template-rows: 80px 80px 80px 80px;
+  grid-template-rows: 60px 60px 60px 60px 60px;
   grid-template-columns: 80px 80px 80px 80px;
 }
 button {
