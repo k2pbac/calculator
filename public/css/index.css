@@ -45,3 +45,22 @@ body {
 .hidden {
   display: none !important;
 }
+
+.alert {
+  display: block;
+  height: fit-content;
+  margin-bottom: 20px;
+  padding: 10px 0px;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+.alert.success {
+  background: #0080009c;
+}
+
+.alert.fail {
+  background: #ff00006e;
+}

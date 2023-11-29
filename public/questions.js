@@ -1,6 +1,5 @@
 const signs = ["+", "-", "*", "/"];
-
-function generateEasyQuestion() {
+function generateEasyQuestion(currentLevel) {
   const num1 = getRandomInt(100);
   const num2 = getRandomInt(100);
   const num3 = getRandomArbitrary(-100, 100);
@@ -24,13 +23,14 @@ function generateEasyQuestion() {
     sign3 +
     " " +
     num4;
+  console.log(getNums("Easy", currentLevel), getSigns("Easy", currentLevel));
 
   const answer = getAnswer([num1, num2, num3, num4], [sign, sign2, sign3]);
 
   return { question, answer };
 }
 
-function generateMediumQuestion() {
+function generateMediumQuestion(currentLevel) {
   const num1 = getRandomInt(100);
   const num2 = getRandomInt(100);
   const num3 = getRandomArbitrary(-100, 100);
@@ -54,37 +54,24 @@ function generateMediumQuestion() {
     sign3 +
     " " +
     num4;
+  console.log(getNums("Medium", currentLevel), getSigns("Easy", currentLevel));
 
   const answer = getAnswer([num3, num4, num2, num1], [sign3, sign, sign2]);
   return { question, answer };
 }
 
 function generateHardQuestion() {
-  const num1 = getRandomInt(100);
-  const num2 = getRandomInt(100);
-  const num3 = getRandomArbitrary(-100, 100);
-  const num4 = getRandomArbitrary(1, 20);
+  let question = "";
+  const nums = getNums("Hard", currentLevel);
+  const signs = getSigns("Easy", currentLevel);
 
-  const sign = signs[getRandomInt(2)];
-  const sign2 = signs[getRandomArbitrary(2, 2)];
-  const sign3 = signs[getRandomArbitrary(3, 3)];
+  const answer = getAnswer(nums, signs);
+  for (let i = 0; i < signs.length; ) {
+    question += nums[i] + " " + signs[i] + " ";
+    i++;
+  }
 
-  const question =
-    num1 +
-    " " +
-    sign +
-    " " +
-    num2 +
-    " " +
-    sign2 +
-    " " +
-    num3 +
-    " " +
-    sign3 +
-    " " +
-    num4;
-
-  const answer = getAnswer([num3, num4, num2, num1], [sign3, sign2, sign]);
+  question += nums[nums.length - 1];
   return { question, answer };
 }
 
@@ -93,7 +80,9 @@ function getRandomInt(max) {
 }
 
 function getRandomArbitrary(min, max) {
-  return Math.floor(Math.random() * (max - min) + min);
+  let num = Math.floor(Math.random() * (max - min) + min);
+  if (num === 0) return Math.floor(Math.random() * (max - min) + min);
+  else return num;
 }
 
 function getAnswer(nums, signs) {
@@ -106,4 +95,32 @@ function getAnswer(nums, signs) {
     i++;
   }
   return Math.round(total);
+}
+
+function getNums(level, currentLevel) {
+  let nums = [];
+  currentLevel += 1;
+  for (let i = 0; i <= currentLevel; i++) {
+    if (level === "Easy" || currentLevel < 5) {
+      nums.push(getRandomInt(100));
+    } else {
+      nums.push(getRandomArbitrary(-100, 100));
+    }
+  }
+  return nums;
+}
+
+function getSigns(level, currentLevel) {
+  let tempSigns = [];
+  currentLevel += 1;
+  for (let i = 1; i <= currentLevel; i++) {
+    if (level === "Easy" || currentLevel < 5) {
+      const num = getRandomInt(2);
+      console.log(signs[num], num);
+      tempSigns.push(signs[num]);
+    } else {
+      tempSigns.push(signs[getRandomArbitrary(2, 3)]);
+    }
+  }
+  return tempSigns;
 }

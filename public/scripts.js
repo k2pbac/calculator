@@ -11,8 +11,43 @@ $(document).ready(function () {
     console.log("callback - particles.js config loaded");
   });
 
+  $(".cp2").bind("cut copy paste", function (e) {
+    e.preventDefault();
+  });
+
   $(".home").on("click", () => {
     clearAllElements();
+  });
+
+  $(this).on("keydown", (element) => {
+    if (element.key >= 0 && element.key <= 9) {
+      const val = handleInput(element.key);
+      if (
+        !!runningVal[index] &&
+        !["+", "-", "*", "/"].includes(runningVal[index])
+      )
+        runningVal[index] += "" + val;
+      else {
+        runningVal.push(val);
+      }
+      const currentVal = parseFloat(runningVal[index]);
+      if (sign == "") $(".total").val(currentVal);
+      else {
+        $(".total").val($(".total").val() + val);
+      }
+      if (["+", "-", "*", "/"].includes(runningVal[index])) {
+        index++;
+      }
+    } else if (element.key === "Backspace") {
+      const total = $(".total").val();
+      $(".total").val(total.substring(0, total.length - 1));
+      if (runningVal[index])
+        runningVal[index] = runningVal[index].substring(
+          0,
+          runningVal[index].length - 1
+        );
+      else index--;
+    }
   });
 
   $("#draggable").draggable(

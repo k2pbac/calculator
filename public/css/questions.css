@@ -15,6 +15,11 @@
 .question-container {
   display: flex;
   flex-direction: column;
+  margin-top: 80px;
+}
+.question-container .level {
+  display: inline-block;
+  margin-left: 10px;
 }
 .question-container input {
   padding: 14px;
@@ -24,8 +29,9 @@
 }
 
 .question-container p {
-  justify-content: flex-end;
-  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
   color: white;
 }
 
@@ -41,6 +47,8 @@
   padding: 13px;
   border-radius: 0.5rem;
   cursor: pointer;
+  color: white;
+  border: none;
 }
 
 .question-container__buttons .reset {
@@ -48,6 +56,6 @@
 }
 
 .question-container__buttons .home {
-  background: #80808078;
+  background: black;
   margin-left: 2px;
 }
